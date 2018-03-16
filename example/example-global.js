@@ -23,3 +23,11 @@ process.argv.forEach(function (val, index, array) {
 console.log('执行路径' + process.execPath);
 // 平台信息
 console.log('平台信息'+process.platform);
+
+// 输出当前目录
+console.info('当前目录：'+ process.cwd());
+
+// 输出当前版本
+console.info('输出当前版本:'+process.version);
+ // 输出内存使用情况
+console.info('输出内存使用情况:'+ process.memoryUsage());
