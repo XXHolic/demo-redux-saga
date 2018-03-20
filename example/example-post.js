@@ -15,7 +15,7 @@ http.createServer(function (req, res) {
   var body = '';
   req.on('data', function (chunk) {
     body += chunk;
-  })
+  });
 
   req.on('end', function () {
     body = querystring.parse(body);
