@@ -12,7 +12,7 @@ const sagaMiddleware = createSagaMiddleware();
 console.info('sagaMiddleware',{sagaMiddleware});
 
 const store = createStore(reducer,applyMiddleware(sagaMiddleware));
-// sagaMiddleware.run(watchIncrementAsync);
+sagaMiddleware.run(watchIncrementAsync);
 
 function render() {
   ReactDOM.render(
