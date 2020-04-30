@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import Counter from './component/counter'
 import './App.css';
 
-function App() {
+function App(props) {
+  const {getState,dispatch} = props;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Counter
+        value={getState()}
+        onIncrement={() => dispatch({type:'INCREMENT'})}
+        onDecrement={() => dispatch({type:'DECREMENT'})}
+        onIncrementAsync={() => dispatch({type:'INCREMENT_ASYNC'})}
+      />
     </div>
   );
 }
+
+// store.subscribe(App)
 
 export default App;
