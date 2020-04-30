@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import reducer from './reducers';
-import rootSaga from './sagas';
+import {watchIncrementAsync} from './sagas';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const sagaMiddleware = createSagaMiddleware();
+
+console.info('sagaMiddleware',{sagaMiddleware});
+
 const store = createStore(reducer,applyMiddleware(sagaMiddleware));
-sagaMiddleware.run(rootSaga);
+// sagaMiddleware.run(watchIncrementAsync);
 
 function render() {
   ReactDOM.render(
